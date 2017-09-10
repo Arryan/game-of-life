@@ -44,9 +44,17 @@ var board = {
   start : function() {
     this.canvas.width = 600;
     this.canvas.height = 600;
+    this.canvas.addEventListener("click", this.handleClick);
     this.context = this.canvas.getContext("2d");
     document.body.insertBefore(this.canvas, document.body.childNodes[0]);
     renderBoard();
+  },
+  handleClick : function(e) {
+    let xPos = Math.floor(e.offsetX / 15),
+    yPos = Math.floor(e.offsetY / 15);
+    grid[yPos][xPos] = grid[yPos][xPos] === 1 ? 0 : 1;
+    board.context.fillStyle = grid[yPos][xPos] === 1 ? '#ff0744' : '#ffebee';
+    board.context.fillRect(xPos * 15, yPos * 15, 15,15);
   }
 };
 
