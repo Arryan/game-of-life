@@ -4,17 +4,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Conway's Game of Life</title>
 <style>
-canvas, input {
+div {
+  text-align: center;
+}
+canvas,input {
     border:1px solid #f8bbd0;
-    display: block;
     margin: 10px auto;
+}
+canvas {
+  display: block;
 }
 </style>
 </head>
 <body onload="startGame()">
 <script src="render.js"></script>
 <script src="play.js"></script>
-<input type="submit" id="step-btn" value="step" />
-<input type="submit" id="play-btn" value="play" />
+<div>
+  <input type="submit" id="step-btn" value="STEP" />
+  <input type="submit" id="play-btn" value="&#9654;" />
+  <input type="submit" id="pause-btn" value="&#9208;" /><br />
+  <input type="range" id="deltaT-range" value="200" min="10" max="1500"/>
+</div>
 </body>
 </html>
